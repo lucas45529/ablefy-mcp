@@ -1,6 +1,6 @@
 {
   "name": "ablefy-mcp",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "build": "tsc",
@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
+    "@vercel/mcp-adapter": "^0.3.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
