@@ -1,4 +1,4 @@
-import { createMcpHandler } from '@vercel/mcp-adapter';
+import { createMcpHandler } from 'mcp-handler';
 import { z } from 'zod';
 
 const BASE = "https://api.myablefy.com/api";
@@ -158,6 +158,6 @@ const handler = createMcpHandler(server => {
     const result = await api(`/events/${id}/e_tickets`);
     return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
   });
-});
+}, {}, { basePath: '/', verboseLogs: true });
 
 export { handler as GET, handler as POST, handler as DELETE };
