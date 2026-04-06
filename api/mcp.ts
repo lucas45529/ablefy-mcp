@@ -9,8 +9,8 @@ async function api(path: string, method = "GET", body?: any) {
   const url = `${BASE}${path}${sep}key=${KEY}&secret=${SECRET}`;
   const opts: RequestInit = { method, headers: { "Content-Type": "application/json" } };
   if (body) opts.body = JSON.stringify(body);
-  const r = await fetch(url);
-  return r.json();
+  const r = await fetch(url, opts);
+  const text = await r.text(); try { return JSON.parse(text); } catch { return { error: `Non-JSON response (${r.status})`, body: text.substring(0, 500) }; }
 }
 
 const TOOLS = [
